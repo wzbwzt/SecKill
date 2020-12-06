@@ -1,25 +1,31 @@
 package conf
 
 import (
+	"context"
 	"encoding/json"
+	"fmt"
+	"sync"
 	"time"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
+	"github.com/coreos/etcd/mvcc/mvccpb"
 	"github.com/garyburd/redigo/redis"
 	etcd "go.etcd.io/etcd/clientv3"
 )
 
 var (
-	secKillConfig *SysConfig
-	redisPool     *redis.Pool
-	etcdClient    *etcd.Client
+	secKillConfig      *SysConfig
+	redisPool          *redis.Pool
+	etcdClient         *etcd.Client
+	MapSecKillProducts = make(map[int]*SecProductInfoConf)
 )
 
 type SysConfig struct {
 	redisConf *RedisConfig
 	etcdConf  *EtcdConfig
 	logConf   *LogsConfig
+	rwLock    sync.RWMutex
 }
 type RedisConfig struct {
 	redisAddr   string
@@ -29,13 +35,24 @@ type RedisConfig struct {
 }
 
 type EtcdConfig struct {
-	etcdAddr string
-	timeOut  int
+	etcdAddr       string
+	timeOut        int
+	etcdSecKPrefix string
+	etcdProductKey string
 }
 
 type LogsConfig struct {
 	logPath  string
 	logLevel string
+}
+
+type SecProductInfoConf struct {
+	ProductID int
+	StartTime int64
+	EndTime   int64
+	Status    int
+	Total     int
+	Left      int
 }
 
 func init() {
@@ -46,7 +63,7 @@ func init() {
 	//加载redis配置
 	err = initRedis()
 	if err != nil {
-		logs.Debug("init redis failed,err:%s", err)
+		logs.Error("init redis failed,err:%s", err)
 		panic(err)
 	}
 	//加载etcd配置
@@ -59,16 +76,29 @@ func init() {
 	//加载日志配置文件
 	err = initLogs()
 	if err != nil {
-		logs.Debug("init logsconfig failed,err:%s", err)
+		logs.Error("init logsconfig failed,err:%s", err)
 		panic(err)
 	}
+
+	//从etcd中加载秒杀文件
+	err = loadSecConfig()
+	if err != nil {
+		logs.Error("load seckill config failed,err:%s", err)
+		panic(err)
+	}
+
+	// 监听秒杀配置是否改变
+	initSecProductWatcher()
+
 }
 
 func initConfig() {
 	secKillConfig = &SysConfig{
 		etcdConf: &EtcdConfig{
-			etcdAddr: beego.AppConfig.String("etcdAddr"),
-			timeOut:  beego.AppConfig.DefaultInt("etcdTimeOut", 10),
+			etcdAddr:       beego.AppConfig.String("etcdAddr"),
+			timeOut:        beego.AppConfig.DefaultInt("etcdTimeOut", 10),
+			etcdSecKPrefix: beego.AppConfig.String("etcdSecKeyPrefix"),
+			etcdProductKey: beego.AppConfig.String("etcdProductKey"),
 		},
 		redisConf: &RedisConfig{
 			redisAddr:   beego.AppConfig.String("redisAddr"),
@@ -104,7 +134,7 @@ func initRedis() (err error) {
 
 func initEtcd() (err error) {
 	etcdClient, err = etcd.New(etcd.Config{
-		Endpoints:   []string{},
+		Endpoints:   []string{secKillConfig.etcdConf.etcdAddr},
 		DialTimeout: time.Duration(secKillConfig.etcdConf.timeOut) * time.Millisecond,
 	})
 
@@ -143,4 +173,86 @@ func transferLogLevel(level string) int {
 	default:
 		return logs.LevelDebug
 	}
+}
+
+//从etd加载秒杀配置
+func loadSecConfig() (err error) {
+	key := fmt.Sprintf("%s/%s", secKillConfig.etcdConf.etcdSecKPrefix, secKillConfig.etcdConf.etcdProductKey)
+	rsp, err := etcdClient.Get(context.Background(), key)
+	if err != nil {
+		return
+	}
+
+	var secProductInfo []SecProductInfoConf
+	for k, v := range rsp.Kvs {
+		logs.Debug("key:%s value:%s", k, v)
+		err = json.Unmarshal(v.Value, &secProductInfo)
+		if err != nil {
+			return
+		}
+		logs.Debug("secInfo conf is %v", secProductInfo)
+	}
+
+	secKillConfig.rwLock.Lock()
+	for _, v := range secProductInfo {
+		_, ok := MapSecKillProducts[v.ProductID]
+		if ok {
+			continue
+		}
+		MapSecKillProducts[v.ProductID] = &v
+	}
+	secKillConfig.rwLock.Unlock()
+	return
+}
+
+//监听秒杀配置是否改变
+func initSecProductWatcher() {
+	key := fmt.Sprintf("%s/%s", secKillConfig.etcdConf.etcdSecKPrefix, secKillConfig.etcdConf.etcdProductKey)
+	go watchSecProductKey(key)
+}
+
+func watchSecProductKey(key string) {
+	logs.Debug("begin watch key: %s", key)
+
+	for {
+		watchChan := etcdClient.Watch(context.Background(), key)
+		var secProductInfo []SecProductInfoConf
+		var getConfSucc = true
+
+		for wresp := range watchChan {
+			for _, ev := range wresp.Events {
+				if ev.Type == mvccpb.DELETE {
+					logs.Warn("key[%s]'s config deleted", key)
+					continue
+				}
+				if ev.Type == mvccpb.PUT && string(ev.Kv.Key) == key {
+					err := json.Unmarshal(ev.Kv.Value, &secProductInfo)
+					if err != nil {
+						logs.Error("key[%s],Unmarshal[%s] failed,err: %v", ev.Kv.Key, ev.Kv.Value, err)
+						getConfSucc = false
+						continue
+					}
+				}
+				logs.Debug("get config from etcd,%s %q: %q\n", ev.Type, ev.Kv.Key, ev.Kv.Value)
+			}
+
+			if getConfSucc {
+				logs.Debug("get config from etcd success, %v", secProductInfo)
+				updateSecProductInfo(secProductInfo)
+			}
+		}
+	}
+}
+
+func updateSecProductInfo(confs []SecProductInfoConf) {
+	//每个加锁效率会是问题，可以先放入到一个临时变量中，再加锁赋值
+	tmp := make(map[int]*SecProductInfoConf)
+	for _, v := range confs {
+		tmp[v.ProductID] = &v
+	}
+
+	secKillConfig.rwLock.Lock()
+	MapSecKillProducts = tmp
+	secKillConfig.rwLock.Unlock()
+
 }
