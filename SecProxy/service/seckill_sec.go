@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+//ReadSecKilProInfo 获取秒杀商品详情
 func ReadSecKilProInfo(id int) (out *ReadSecProRsp, err error) {
 	if id == 0 {
 		out = &ReadSecProRsp{
@@ -30,9 +31,7 @@ func ReadSecKilProInfo(id int) (out *ReadSecProRsp, err error) {
 					Reason: "active has not start",
 				},
 			}
-			start = false
-			end = false
-			status = parameter.OnSale
+			return
 		}
 
 		if now-info.StartTime > 0 && now < info.EndTime {
@@ -51,12 +50,10 @@ func ReadSecKilProInfo(id int) (out *ReadSecProRsp, err error) {
 			out = &ReadSecProRsp{
 				Ret: &CommonReturn{
 					Code:   ErrActiveAlreadyEnd,
-					Reason: "active has already end",
+					Reason: "this product has already end",
 				},
 			}
-			start = false
-			end = true
-			status = parameter.HasSaleOut
+			return
 		}
 
 		out = &ReadSecProRsp{

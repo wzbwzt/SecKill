@@ -26,6 +26,7 @@ type SysConfig struct {
 	etcdConf  *EtcdConfig
 	logConf   *LogsConfig
 	rwLock    sync.RWMutex
+	SecretKey string
 }
 type RedisConfig struct {
 	redisAddr   string
@@ -110,6 +111,7 @@ func initConfig() {
 			logPath:  beego.AppConfig.String("logPath"),
 			logLevel: beego.AppConfig.String("logLevel"),
 		},
+		SecretKey: beego.AppConfig.String("secretKey"),
 	}
 }
 

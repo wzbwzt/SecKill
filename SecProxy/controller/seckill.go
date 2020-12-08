@@ -11,7 +11,7 @@ type SecKillController struct {
 	beego.Controller
 }
 
-func (s *SecKillController) SecKill() {
+func (s *SecKillController) SecKillProdList() {
 	rsp := parameter.Response{}
 	defer func() {
 		s.Data["json"] = rsp
@@ -20,9 +20,9 @@ func (s *SecKillController) SecKill() {
 
 	rsp.Code = 0
 	rsp.Msg = "succes"
-
+	return
 }
-func (s *SecKillController) SecInfo() {
+func (s *SecKillController) SecProdInfo() {
 	rsp := &parameter.Response{}
 	defer func() {
 		s.Data["json"] = rsp
@@ -62,4 +62,8 @@ func (s *SecKillController) SecInfo() {
 	rsp.Msg = "success"
 
 	return
+}
+
+func (s *SecKillController) SecKill() {
+
 }
