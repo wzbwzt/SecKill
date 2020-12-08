@@ -1,10 +1,16 @@
 package parameter
 
+const (
+	OnSale = iota
+	HasSaleOut
+	ForceSaleOut
+)
+
 type ReadSecKProdInfoRsp struct {
-	ProductID int   `json:"ProductID"`
-	StartTime int64 `json:"StartTime"`
-	EndTime   int64 `json:"EndTime  "`
-	Status    int   `json:"Status   "`
-	Total     int   `json:"Total    "`
-	Left      int   `json:"Left     "`
+	ProductID int  `json:"productID"`
+	Start     bool `json:"start"`
+	End       bool `json:"end"`
+	Status    int  `json:"status"`
+	Total     int  `json:"total"`
+	Left      int  `json:"left"`
 }

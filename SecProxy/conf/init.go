@@ -199,7 +199,8 @@ func loadSecConfig() (err error) {
 		if ok {
 			continue
 		}
-		MapSecKillProducts[v.ProductID] = &v
+		tmp := v
+		MapSecKillProducts[v.ProductID] = &tmp
 	}
 	secKillConfig.rwLock.Unlock()
 	return
@@ -248,11 +249,11 @@ func updateSecProductInfo(confs []SecProductInfoConf) {
 	//每个加锁效率会是问题，可以先放入到一个临时变量中，再加锁赋值
 	tmp := make(map[int]*SecProductInfoConf)
 	for _, v := range confs {
-		tmp[v.ProductID] = &v
+		ttmp := v
+		tmp[v.ProductID] = &ttmp
 	}
 
 	secKillConfig.rwLock.Lock()
 	MapSecKillProducts = tmp
 	secKillConfig.rwLock.Unlock()
-
 }

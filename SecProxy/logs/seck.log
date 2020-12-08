@@ -447,3 +447,755 @@
 2020/12/07 00:26:32.438 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
 2020/12/07 00:26:32.438 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
 2020/12/07 00:26:32.439 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 20:46:43.782 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:934 version:10 value:"[{\"ProductID\":1001,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10}]" 
+2020/12/07 20:46:43.783 [D] [init.go:84]  secInfo conf is [{1001 1607260723 1607264383 0 10 10} {1082 1607260723 1607264383 0 10 10}]
+2020/12/07 20:46:43.784 [D] [asm_amd64.s:1357]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 20:46:43.815 [I] [asm_amd64.s:1357]  http server Running on http://:18080
+2020/12/07 20:47:43.350 [D] [server.go:2802]  |      127.0.0.1|[42m 200 [0m|      770.6µs|   match|[44m GET     [0m /     r:/
+2020/12/07 20:47:43.560 [D] [server.go:2802]  |      127.0.0.1|[43m 404 [0m|      289.3µs| nomatch|[44m GET     [0m /favicon.ico
+2020/12/07 20:47:48.936 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 20:47:48.937 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 20:47:48.937 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 20:47:48.938 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 20:47:48.938 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 20:47:48.939 [C] [panic.go:679]  D:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:33
+2020/12/07 20:47:48.939 [C] [panic.go:679]  D:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 20:47:48.940 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 20:47:48.941 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 20:47:48.941 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 20:47:48.941 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 20:47:48.941 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 20:47:48.941 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 20:47:48.942 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 20:47:57.262 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 20:47:57.262 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 20:47:57.264 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 20:47:57.264 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 20:47:57.264 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 20:47:57.264 [C] [panic.go:679]  D:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:22
+2020/12/07 20:47:57.265 [C] [panic.go:679]  D:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 20:47:57.265 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 20:47:57.265 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 20:47:57.265 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 20:47:57.266 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 20:47:57.266 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 20:47:57.266 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 20:47:57.267 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 20:48:25.622 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 20:48:25.623 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 20:48:25.624 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 20:48:25.624 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 20:48:25.625 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 20:48:25.625 [C] [panic.go:679]  D:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:22
+2020/12/07 20:48:25.625 [C] [panic.go:679]  D:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 20:48:25.626 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 20:48:25.626 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 20:48:25.626 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 20:48:25.626 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 20:48:25.627 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 20:48:25.627 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 20:48:25.627 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 20:49:03.034 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 20:49:03.034 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 20:49:03.035 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 20:49:03.036 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 20:49:03.037 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 20:49:03.037 [C] [panic.go:679]  D:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:22
+2020/12/07 20:49:03.037 [C] [panic.go:679]  D:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 20:49:03.038 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 20:49:03.038 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 20:49:03.039 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 20:49:03.039 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 20:49:03.040 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 20:49:03.040 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 20:49:03.041 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 20:49:56.389 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 20:49:56.390 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 20:49:56.391 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 20:49:56.392 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 20:49:56.392 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 20:49:56.393 [C] [panic.go:679]  D:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:11
+2020/12/07 20:49:56.393 [C] [panic.go:679]  D:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 20:49:56.394 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 20:49:56.394 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 20:49:56.394 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 20:49:56.394 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 20:49:56.395 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 20:49:56.395 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 20:49:56.395 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 20:49:58.586 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 20:49:58.587 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 20:49:58.588 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 20:49:58.589 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 20:49:58.589 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 20:49:58.589 [C] [panic.go:679]  D:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:11
+2020/12/07 20:49:58.590 [C] [panic.go:679]  D:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 20:49:58.590 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 20:49:58.591 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 20:49:58.591 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 20:49:58.591 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 20:49:58.591 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 20:49:58.592 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 20:49:58.592 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 20:53:16.582 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:934 version:10 value:"[{\"ProductID\":1001,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10}]" 
+2020/12/07 20:53:16.582 [D] [init.go:84]  secInfo conf is [{1001 1607260723 1607264383 0 10 10} {1082 1607260723 1607264383 0 10 10}]
+2020/12/07 20:53:16.582 [D] [asm_amd64.s:1357]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 20:53:16.631 [I] [asm_amd64.s:1357]  http server Running on http://:18080
+2020/12/07 20:54:24.208 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:934 version:10 value:"[{\"ProductID\":1001,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10}]" 
+2020/12/07 20:54:24.208 [D] [init.go:84]  secInfo conf is [{1001 1607260723 1607264383 0 10 10} {1082 1607260723 1607264383 0 10 10}]
+2020/12/07 20:54:24.208 [D] [asm_amd64.s:1357]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 20:54:24.244 [I] [asm_amd64.s:1357]  http server Running on http://:18080
+2020/12/07 20:55:45.940 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 20:55:45.940 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 20:55:45.940 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 20:55:45.940 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 20:55:45.940 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 20:55:45.940 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:11
+2020/12/07 20:56:23.067 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 20:58:02.004 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 20:58:02.004 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 20:58:02.004 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 20:58:02.004 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 20:58:02.005 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 20:58:02.005 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:22
+2020/12/07 20:58:02.005 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 20:58:02.005 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 20:58:02.005 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 20:58:02.005 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 20:58:02.005 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 20:58:02.005 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 20:58:02.005 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 20:58:02.005 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 20:58:02.006 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 20:58:02.006 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 20:58:02.006 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 20:58:02.006 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 20:58:02.006 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 20:58:02.006 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 20:58:02.006 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 20:58:12.486 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 20:58:12.486 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 20:58:12.486 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 20:58:12.486 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 20:58:12.486 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 20:58:12.486 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:22
+2020/12/07 20:58:12.486 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 20:58:12.486 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 20:58:12.486 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 20:58:12.486 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 20:58:12.486 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 20:58:12.486 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 20:58:12.486 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 20:58:12.487 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 20:58:13.294 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 20:58:13.294 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 20:58:13.294 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 20:58:13.294 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 20:58:13.294 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 20:58:13.294 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:22
+2020/12/07 20:58:13.294 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 20:58:13.294 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 20:58:13.294 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 20:58:13.294 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 20:58:13.294 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 20:58:13.294 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 20:58:13.295 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 20:58:13.296 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 20:58:13.456 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 20:58:13.456 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 20:58:13.456 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 20:58:13.456 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 20:58:13.456 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 20:58:13.456 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:22
+2020/12/07 20:58:13.456 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 20:58:13.456 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 20:58:13.456 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 20:58:13.456 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 20:58:13.456 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 20:58:13.456 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 20:58:13.456 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 20:58:13.457 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 20:58:13.677 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 20:58:13.677 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 20:58:13.677 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 20:58:13.677 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 20:58:13.677 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 20:58:13.677 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:22
+2020/12/07 20:58:13.677 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 20:58:13.678 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 20:58:13.678 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 20:58:13.678 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 20:58:13.678 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 20:58:13.678 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 20:58:13.678 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 20:58:13.678 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 20:58:30.203 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:934 version:10 value:"[{\"ProductID\":1001,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10}]" 
+2020/12/07 20:58:30.203 [D] [init.go:84]  secInfo conf is [{1001 1607260723 1607264383 0 10 10} {1082 1607260723 1607264383 0 10 10}]
+2020/12/07 20:58:30.203 [D] [asm_amd64.s:1357]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 20:58:30.238 [I] [asm_amd64.s:1357]  http server Running on http://:18080
+2020/12/07 21:01:03.097 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:01:03.097 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:01:03.097 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:01:03.097 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:01:03.097 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:01:03.097 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:22
+2020/12/07 21:01:03.097 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 21:01:03.097 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:01:03.097 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:01:03.097 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:01:03.098 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:01:03.098 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:01:03.098 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:01:03.098 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:01:03.995 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:01:03.995 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:01:03.995 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:01:03.995 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:01:03.995 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:01:03.995 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:22
+2020/12/07 21:01:03.995 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 21:01:03.995 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:01:03.995 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:01:03.995 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:01:03.995 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:01:03.995 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:01:03.995 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:01:03.996 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:01:04.218 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:01:04.218 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:01:04.218 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:01:04.218 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:01:04.218 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:01:04.218 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:22
+2020/12/07 21:01:04.218 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 21:01:04.218 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:01:04.218 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:01:04.218 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:01:04.218 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:01:04.218 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:01:04.218 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:01:04.219 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:02:23.975 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:934 version:10 value:"[{\"ProductID\":1001,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10}]" 
+2020/12/07 21:02:23.975 [D] [init.go:84]  secInfo conf is [{1001 1607260723 1607264383 0 10 10} {1082 1607260723 1607264383 0 10 10}]
+2020/12/07 21:02:23.975 [D] [asm_amd64.s:1357]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 21:02:24.010 [I] [asm_amd64.s:1357]  http server Running on http://:18080
+2020/12/07 21:03:45.273 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:03:45.273 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:03:45.273 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:03:45.273 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:03:45.273 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:03:45.273 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:23
+2020/12/07 21:03:45.273 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 21:03:45.273 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:03:45.273 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:03:45.273 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:03:45.273 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:03:45.273 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:03:45.273 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:03:45.274 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:03:46.163 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:03:46.163 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:03:46.163 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:03:46.163 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:03:46.163 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:03:46.163 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:23
+2020/12/07 21:03:46.163 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 21:03:46.163 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:03:46.163 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:03:46.163 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:03:46.163 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:03:46.163 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:03:46.163 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:03:46.164 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:03:46.333 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:03:46.333 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:03:46.333 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:03:46.333 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:03:46.333 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:03:46.333 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:23
+2020/12/07 21:03:46.333 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 21:03:46.333 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:03:46.333 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:03:46.333 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:03:46.333 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:03:46.333 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:03:46.333 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:03:46.333 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:03:46.553 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:03:46.553 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:03:46.553 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:03:46.553 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:03:46.553 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:03:46.553 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:23
+2020/12/07 21:03:46.553 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 21:03:46.553 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:03:46.553 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:03:46.553 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:03:46.553 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:03:46.553 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:03:46.553 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:03:46.554 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:05:15.051 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:05:15.051 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:05:15.051 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:05:15.051 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:05:15.051 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:05:15.052 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:23
+2020/12/07 21:05:15.052 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 21:05:15.052 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:05:15.052 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:05:15.052 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:05:15.052 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:05:15.052 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:05:15.052 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:05:15.052 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:09:37.270 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:09:37.270 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:09:37.270 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:09:37.270 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:09:37.271 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:09:37.271 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:23
+2020/12/07 21:09:37.271 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:38
+2020/12/07 21:09:37.271 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:09:37.271 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:09:37.271 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:09:37.271 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:09:37.271 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:09:37.271 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:09:37.272 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:09:42.483 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:934 version:10 value:"[{\"ProductID\":1001,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10}]" 
+2020/12/07 21:09:42.483 [D] [init.go:84]  secInfo conf is [{1001 1607260723 1607264383 0 10 10} {1082 1607260723 1607264383 0 10 10}]
+2020/12/07 21:09:42.483 [D] [asm_amd64.s:1357]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 21:09:42.519 [I] [asm_amd64.s:1357]  http server Running on http://:18080
+2020/12/07 21:13:51.965 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:13:51.966 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:13:51.966 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:13:51.966 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:13:51.966 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:13:51.966 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:23
+2020/12/07 21:13:51.966 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:39
+2020/12/07 21:13:51.966 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:13:51.966 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:13:51.966 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:13:51.966 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:13:51.966 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:13:51.966 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:13:51.966 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:13:52.870 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:13:52.870 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:13:52.870 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:13:52.870 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:13:52.870 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:13:52.870 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:23
+2020/12/07 21:13:52.870 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:39
+2020/12/07 21:13:52.870 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:13:52.870 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:13:52.870 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:13:52.870 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:13:52.870 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:13:52.870 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:13:52.871 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:13:53.032 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:13:53.032 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:13:53.032 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:13:53.032 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:13:53.032 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:13:53.032 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:23
+2020/12/07 21:13:53.032 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:39
+2020/12/07 21:13:53.032 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:13:53.032 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:13:53.032 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:13:53.032 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:13:53.032 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:13:53.032 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:13:53.041 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:13:53.193 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:13:53.193 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:13:53.193 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:13:53.193 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:13:53.193 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:13:53.193 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:23
+2020/12/07 21:13:53.193 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:39
+2020/12/07 21:13:53.194 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:13:53.194 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:13:53.194 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:13:53.194 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:13:53.194 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:13:53.194 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:13:53.194 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:13:53.418 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:13:53.418 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:13:53.418 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:13:53.418 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:13:53.418 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:13:53.418 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:23
+2020/12/07 21:13:53.418 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:39
+2020/12/07 21:13:53.418 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:13:53.418 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:13:53.418 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:13:53.419 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:13:53.419 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:13:53.419 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:13:53.419 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:14:56.016 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:934 version:10 value:"[{\"ProductID\":1001,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10}]" 
+2020/12/07 21:14:56.016 [D] [init.go:84]  secInfo conf is [{1001 1607260723 1607264383 0 10 10} {1082 1607260723 1607264383 0 10 10}]
+2020/12/07 21:14:56.016 [D] [asm_amd64.s:1357]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 21:14:56.052 [I] [asm_amd64.s:1357]  http server Running on http://:18080
+2020/12/07 21:15:25.626 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:15:25.626 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:15:25.626 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:15:25.626 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:15:25.626 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:15:25.626 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:23
+2020/12/07 21:15:25.626 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:39
+2020/12/07 21:15:25.626 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:15:25.626 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:15:25.626 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:15:25.626 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:15:25.626 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:15:25.626 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:15:25.626 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:16:20.027 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:934 version:10 value:"[{\"ProductID\":1001,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10}]" 
+2020/12/07 21:16:20.028 [D] [init.go:84]  secInfo conf is [{1001 1607260723 1607264383 0 10 10} {1082 1607260723 1607264383 0 10 10}]
+2020/12/07 21:16:20.028 [D] [asm_amd64.s:1357]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 21:16:20.064 [I] [asm_amd64.s:1357]  http server Running on http://:18080
+2020/12/07 21:18:37.779 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:934 version:10 value:"[{\"ProductID\":1001,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10}]" 
+2020/12/07 21:18:37.779 [D] [init.go:84]  secInfo conf is [{1001 1607260723 1607264383 0 10 10} {1082 1607260723 1607264383 0 10 10}]
+2020/12/07 21:18:37.779 [D] [asm_amd64.s:1357]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 21:18:37.814 [I] [asm_amd64.s:1357]  http server Running on http://:18080
+2020/12/07 21:22:29.164 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:934 version:10 value:"[{\"ProductID\":1001,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10}]" 
+2020/12/07 21:22:29.165 [D] [init.go:84]  secInfo conf is [{1001 1607260723 1607264383 0 10 10} {1082 1607260723 1607264383 0 10 10}]
+2020/12/07 21:22:29.165 [D] [asm_amd64.s:1357]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 21:22:29.196 [I] [asm_amd64.s:1357]  http server Running on http://:18080
+2020/12/07 21:26:27.848 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:26:27.848 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:26:27.848 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:26:27.848 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:26:27.848 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:26:27.848 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:31
+2020/12/07 21:26:27.848 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:35
+2020/12/07 21:26:27.848 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:26:27.848 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:26:27.849 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:26:27.849 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:26:27.849 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:26:27.849 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:26:27.850 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:26:34.367 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:934 version:10 value:"[{\"ProductID\":1001,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607260723,\"EndTime\":1607264383,\"Status\":0,\"Total\":10,\"Left\":10}]" 
+2020/12/07 21:26:34.367 [D] [init.go:84]  secInfo conf is [{1001 1607260723 1607264383 0 10 10} {1082 1607260723 1607264383 0 10 10}]
+2020/12/07 21:26:34.367 [D] [asm_amd64.s:1357]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 21:26:34.401 [I] [asm_amd64.s:1357]  http server Running on http://:18080
+2020/12/07 21:26:55.658 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:26:55.658 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:26:55.658 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:26:55.658 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:26:55.658 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:26:55.658 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:31
+2020/12/07 21:26:55.658 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:35
+2020/12/07 21:26:55.659 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:26:55.659 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:26:55.659 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:26:55.659 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:26:55.659 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:26:55.659 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:26:55.659 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:26:57.210 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:26:57.210 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:26:57.210 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:26:57.210 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:26:57.210 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:26:57.210 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:31
+2020/12/07 21:26:57.211 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:35
+2020/12/07 21:26:57.211 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:26:57.211 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:26:57.211 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:26:57.211 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:26:57.211 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:26:57.211 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:26:57.211 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:27:24.634 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:27:24.634 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:27:24.634 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:27:24.634 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:27:24.634 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:27:24.634 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:31
+2020/12/07 21:27:24.634 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:35
+2020/12/07 21:27:24.634 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:27:24.634 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:27:24.634 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:27:24.634 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:27:24.634 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:27:24.634 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:27:24.635 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:30:46.515 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:935 version:11 value:"[{\"ProductID\":1001,\"StartTime\":1607347771,\"EndTime\":1607351431,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607347771,\"EndTime\":1607351431,\"Status\":0,\"Total\":10,\"Left\":10}]" 
+2020/12/07 21:30:46.515 [D] [init.go:84]  secInfo conf is [{1001 1607347771 1607351431 100 10 10} {1082 1607347771 1607351431 0 10 10}]
+2020/12/07 21:30:46.515 [D] [asm_amd64.s:1357]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 21:30:46.549 [I] [asm_amd64.s:1357]  http server Running on http://:18080
+2020/12/07 21:31:22.377 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:31:22.377 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:31:22.377 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:31:22.377 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:31:22.377 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:31:22.377 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:31
+2020/12/07 21:31:22.377 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:35
+2020/12/07 21:31:22.377 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:31:22.377 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:31:22.377 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:31:22.377 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:31:22.377 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:31:22.377 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:31:22.378 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:31:23.548 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:31:23.548 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:31:23.548 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:31:23.548 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:31:23.548 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:31:23.548 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:31
+2020/12/07 21:31:23.548 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:35
+2020/12/07 21:31:23.548 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:31:23.548 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:31:23.548 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:31:23.548 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:31:23.548 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:31:23.548 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:31:23.548 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:34:57.374 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:935 version:11 value:"[{\"ProductID\":1001,\"StartTime\":1607347771,\"EndTime\":1607351431,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607347771,\"EndTime\":1607351431,\"Status\":0,\"Total\":10,\"Left\":10}]" 
+2020/12/07 21:34:57.374 [D] [init.go:84]  secInfo conf is [{1001 1607347771 1607351431 100 10 10} {1082 1607347771 1607351431 0 10 10}]
+2020/12/07 21:34:57.375 [D] [asm_amd64.s:1357]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 21:34:57.414 [I] [asm_amd64.s:1357]  http server Running on http://:18080
+2020/12/07 21:36:20.889 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:936 version:12 value:"[{\"ProductID\":1001,\"StartTime\":1607348110,\"EndTime\":1607351770,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607348110,\"EndTime\":1607351770,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 21:36:20.889 [D] [init.go:84]  secInfo conf is [{1001 1607348110 1607351770 100 10 10} {1082 1607348110 1607351770 200 10 10}]
+2020/12/07 21:36:20.889 [D] [asm_amd64.s:1357]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 21:36:20.932 [I] [asm_amd64.s:1357]  http server Running on http://:18080
+2020/12/07 21:36:26.646 [C] [panic.go:679]  the request url is  /secinfo/
+2020/12/07 21:36:26.646 [C] [panic.go:679]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 21:36:26.646 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:679
+2020/12/07 21:36:26.646 [C] [panic.go:679]  D:/Go/src/runtime/panic.go:199
+2020/12/07 21:36:26.646 [C] [panic.go:679]  D:/Go/src/runtime/signal_windows.go:233
+2020/12/07 21:36:26.646 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:28
+2020/12/07 21:36:26.646 [C] [panic.go:679]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:35
+2020/12/07 21:36:26.646 [C] [panic.go:679]  D:/Go/src/reflect/value.go:460
+2020/12/07 21:36:26.646 [C] [panic.go:679]  D:/Go/src/reflect/value.go:321
+2020/12/07 21:36:26.655 [C] [panic.go:679]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 21:36:26.655 [C] [panic.go:679]  D:/Go/src/net/http/server.go:2802
+2020/12/07 21:36:26.655 [C] [panic.go:679]  D:/Go/src/net/http/server.go:1890
+2020/12/07 21:36:26.655 [C] [panic.go:679]  D:/Go/src/runtime/asm_amd64.s:1357
+2020/12/07 21:36:26.656 [server.go:3054]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 21:38:07.366 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:936 version:12 value:"[{\"ProductID\":1001,\"StartTime\":1607348110,\"EndTime\":1607351770,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607348110,\"EndTime\":1607351770,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 21:38:07.367 [D] [init.go:84]  secInfo conf is [{1001 1607348110 1607351770 100 10 10} {1082 1607348110 1607351770 200 10 10}]
+2020/12/07 21:38:07.367 [D] [asm_amd64.s:1357]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 21:38:07.401 [I] [asm_amd64.s:1357]  http server Running on http://:18080
+2020/12/07 21:38:30.036 [D] [server.go:2802]  |      127.0.0.1|[42m 200 [0m|      998.1µs|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 21:59:49.536 [D] [server.go:2802]  |      127.0.0.1|[42m 200 [0m|      751.7µs|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:05:29.539 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:937 version:13 value:"[{\"ProductID\":1001,\"StartTime\":1607349794,\"EndTime\":1607353454,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607349794,\"EndTime\":1607353454,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 22:05:29.539 [D] [init.go:84]  secInfo conf is [{1001 1607349794 1607353454 100 10 10} {1082 1607349794 1607353454 200 10 10}]
+2020/12/07 22:05:29.539 [D] [asm_amd64.s:1374]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 22:05:29.577 [I] [asm_amd64.s:1374]  http server Running on http://:18080
+2020/12/07 22:05:35.122 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|      974.6µs|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:06:39.151 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:937 version:13 value:"[{\"ProductID\":1001,\"StartTime\":1607349794,\"EndTime\":1607353454,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607349794,\"EndTime\":1607353454,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 22:06:39.151 [D] [init.go:84]  secInfo conf is [{1001 1607349794 1607353454 100 10 10} {1082 1607349794 1607353454 200 10 10}]
+2020/12/07 22:06:39.151 [D] [asm_amd64.s:1374]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 22:06:39.190 [I] [asm_amd64.s:1374]  http server Running on http://:18080
+2020/12/07 22:06:43.254 [C] [panic.go:975]  the request url is  /secinfo/
+2020/12/07 22:06:43.254 [C] [panic.go:975]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 22:06:43.254 [C] [panic.go:975]  c:/go/src/runtime/panic.go:975
+2020/12/07 22:06:43.254 [C] [panic.go:975]  c:/go/src/runtime/panic.go:212
+2020/12/07 22:06:43.254 [C] [panic.go:975]  c:/go/src/runtime/signal_windows.go:246
+2020/12/07 22:06:43.254 [C] [panic.go:975]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:20
+2020/12/07 22:06:43.254 [C] [panic.go:975]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:35
+2020/12/07 22:06:43.254 [C] [panic.go:975]  c:/go/src/reflect/value.go:476
+2020/12/07 22:06:43.254 [C] [panic.go:975]  c:/go/src/reflect/value.go:337
+2020/12/07 22:06:43.254 [C] [panic.go:975]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 22:06:43.254 [C] [panic.go:975]  c:/go/src/net/http/server.go:2843
+2020/12/07 22:06:43.254 [C] [panic.go:975]  c:/go/src/net/http/server.go:1925
+2020/12/07 22:06:43.254 [C] [panic.go:975]  c:/go/src/runtime/asm_amd64.s:1374
+2020/12/07 22:06:43.255 [server.go:3093]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 22:07:34.971 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:937 version:13 value:"[{\"ProductID\":1001,\"StartTime\":1607349794,\"EndTime\":1607353454,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607349794,\"EndTime\":1607353454,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 22:07:34.971 [D] [init.go:84]  secInfo conf is [{1001 1607349794 1607353454 100 10 10} {1082 1607349794 1607353454 200 10 10}]
+2020/12/07 22:07:34.971 [D] [asm_amd64.s:1374]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 22:07:35.009 [I] [asm_amd64.s:1374]  http server Running on http://:18080
+2020/12/07 22:07:39.061 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:07:44.374 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:07:50.219 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:07:52.597 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:07:55.098 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:08:25.209 [C] [panic.go:975]  the request url is  /secinfo/
+2020/12/07 22:08:25.210 [C] [panic.go:975]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 22:08:25.210 [C] [panic.go:975]  c:/go/src/runtime/panic.go:975
+2020/12/07 22:08:25.210 [C] [panic.go:975]  c:/go/src/runtime/panic.go:212
+2020/12/07 22:08:25.210 [C] [panic.go:975]  c:/go/src/runtime/signal_windows.go:246
+2020/12/07 22:08:25.210 [C] [panic.go:975]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:33
+2020/12/07 22:08:25.210 [C] [panic.go:975]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:35
+2020/12/07 22:08:25.210 [C] [panic.go:975]  c:/go/src/reflect/value.go:476
+2020/12/07 22:08:25.210 [C] [panic.go:975]  c:/go/src/reflect/value.go:337
+2020/12/07 22:08:25.210 [C] [panic.go:975]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 22:08:25.210 [C] [panic.go:975]  c:/go/src/net/http/server.go:2843
+2020/12/07 22:08:25.210 [C] [panic.go:975]  c:/go/src/net/http/server.go:1925
+2020/12/07 22:08:25.210 [C] [panic.go:975]  c:/go/src/runtime/asm_amd64.s:1374
+2020/12/07 22:08:25.210 [server.go:3093]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 22:08:42.699 [C] [panic.go:975]  the request url is  /secinfo/
+2020/12/07 22:08:42.699 [C] [panic.go:975]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 22:08:42.699 [C] [panic.go:975]  c:/go/src/runtime/panic.go:975
+2020/12/07 22:08:42.699 [C] [panic.go:975]  c:/go/src/runtime/panic.go:212
+2020/12/07 22:08:42.699 [C] [panic.go:975]  c:/go/src/runtime/signal_windows.go:246
+2020/12/07 22:08:42.699 [C] [panic.go:975]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:9
+2020/12/07 22:08:42.699 [C] [panic.go:975]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:35
+2020/12/07 22:08:42.700 [C] [panic.go:975]  c:/go/src/reflect/value.go:476
+2020/12/07 22:08:42.700 [C] [panic.go:975]  c:/go/src/reflect/value.go:337
+2020/12/07 22:08:42.700 [C] [panic.go:975]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 22:08:42.700 [C] [panic.go:975]  c:/go/src/net/http/server.go:2843
+2020/12/07 22:08:42.700 [C] [panic.go:975]  c:/go/src/net/http/server.go:1925
+2020/12/07 22:08:42.700 [C] [panic.go:975]  c:/go/src/runtime/asm_amd64.s:1374
+2020/12/07 22:08:42.700 [server.go:3093]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 22:08:45.145 [C] [panic.go:975]  the request url is  /secinfo/
+2020/12/07 22:08:45.145 [C] [panic.go:975]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 22:08:45.145 [C] [panic.go:975]  c:/go/src/runtime/panic.go:975
+2020/12/07 22:08:45.145 [C] [panic.go:975]  c:/go/src/runtime/panic.go:212
+2020/12/07 22:08:45.145 [C] [panic.go:975]  c:/go/src/runtime/signal_windows.go:246
+2020/12/07 22:08:45.145 [C] [panic.go:975]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:9
+2020/12/07 22:08:45.145 [C] [panic.go:975]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:35
+2020/12/07 22:08:45.145 [C] [panic.go:975]  c:/go/src/reflect/value.go:476
+2020/12/07 22:08:45.145 [C] [panic.go:975]  c:/go/src/reflect/value.go:337
+2020/12/07 22:08:45.145 [C] [panic.go:975]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 22:08:45.145 [C] [panic.go:975]  c:/go/src/net/http/server.go:2843
+2020/12/07 22:08:45.145 [C] [panic.go:975]  c:/go/src/net/http/server.go:1925
+2020/12/07 22:08:45.145 [C] [panic.go:975]  c:/go/src/runtime/asm_amd64.s:1374
+2020/12/07 22:08:45.145 [server.go:3093]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 22:10:05.976 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:937 version:13 value:"[{\"ProductID\":1001,\"StartTime\":1607349794,\"EndTime\":1607353454,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607349794,\"EndTime\":1607353454,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 22:10:05.976 [D] [init.go:84]  secInfo conf is [{1001 1607349794 1607353454 100 10 10} {1082 1607349794 1607353454 200 10 10}]
+2020/12/07 22:10:05.976 [D] [asm_amd64.s:1374]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 22:10:06.017 [I] [asm_amd64.s:1374]  http server Running on http://:18080
+2020/12/07 22:10:10.123 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:10:22.289 [C] [panic.go:975]  the request url is  /secinfo/
+2020/12/07 22:10:22.289 [C] [panic.go:975]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 22:10:22.289 [C] [panic.go:975]  c:/go/src/runtime/panic.go:975
+2020/12/07 22:10:22.289 [C] [panic.go:975]  c:/go/src/runtime/panic.go:212
+2020/12/07 22:10:22.289 [C] [panic.go:975]  c:/go/src/runtime/signal_windows.go:246
+2020/12/07 22:10:22.289 [C] [panic.go:975]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:35
+2020/12/07 22:10:22.289 [C] [panic.go:975]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:35
+2020/12/07 22:10:22.289 [C] [panic.go:975]  c:/go/src/reflect/value.go:476
+2020/12/07 22:10:22.289 [C] [panic.go:975]  c:/go/src/reflect/value.go:337
+2020/12/07 22:10:22.289 [C] [panic.go:975]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 22:10:22.289 [C] [panic.go:975]  c:/go/src/net/http/server.go:2843
+2020/12/07 22:10:22.289 [C] [panic.go:975]  c:/go/src/net/http/server.go:1925
+2020/12/07 22:10:22.289 [C] [panic.go:975]  c:/go/src/runtime/asm_amd64.s:1374
+2020/12/07 22:10:22.290 [server.go:3093]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 22:11:06.869 [C] [panic.go:975]  the request url is  /secinfo/
+2020/12/07 22:11:06.869 [C] [panic.go:975]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 22:11:06.869 [C] [panic.go:975]  c:/go/src/runtime/panic.go:975
+2020/12/07 22:11:06.869 [C] [panic.go:975]  c:/go/src/runtime/panic.go:212
+2020/12/07 22:14:58.494 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:937 version:13 value:"[{\"ProductID\":1001,\"StartTime\":1607349794,\"EndTime\":1607353454,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607349794,\"EndTime\":1607353454,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 22:14:58.494 [D] [init.go:84]  secInfo conf is [{1001 1607349794 1607353454 100 10 10} {1082 1607349794 1607353454 200 10 10}]
+2020/12/07 22:14:58.494 [D] [asm_amd64.s:1374]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 22:14:58.529 [I] [asm_amd64.s:1374]  http server Running on http://:18080
+2020/12/07 22:15:07.611 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|   8.9723071s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:16:15.124 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:937 version:13 value:"[{\"ProductID\":1001,\"StartTime\":1607349794,\"EndTime\":1607353454,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607349794,\"EndTime\":1607353454,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 22:16:15.124 [D] [init.go:84]  secInfo conf is [{1001 1607349794 1607353454 100 10 10} {1082 1607349794 1607353454 200 10 10}]
+2020/12/07 22:16:15.124 [D] [asm_amd64.s:1374]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 22:16:15.168 [I] [asm_amd64.s:1374]  http server Running on http://:18080
+2020/12/07 22:16:22.309 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:16:32.860 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:17:18.318 [D] [asm_amd64.s:1374]  get config from etcd,PUT "/joelWu/backend/seckill/product": "[{\"ProductID\":1001,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":200,\"Total\":10,\"Left\":10}]"
+
+2020/12/07 22:17:18.318 [D] [asm_amd64.s:1374]  get config from etcd success, [{1001 1607350578 1607354238 100 10 10} {1082 1607350578 1607354238 200 10 10}]
+2020/12/07 22:17:33.710 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:17:37.765 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:17:39.871 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|     1.0101ms|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:18:07.805 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:938 version:14 value:"[{\"ProductID\":1001,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 22:18:07.806 [D] [init.go:84]  secInfo conf is [{1001 1607350578 1607354238 100 10 10} {1082 1607350578 1607354238 200 10 10}]
+2020/12/07 22:18:07.806 [D] [asm_amd64.s:1374]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 22:18:07.841 [I] [asm_amd64.s:1374]  http server Running on http://:18080
+2020/12/07 22:18:14.518 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|      997.3µs|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:18:17.135 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|      489.3µs|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:18:21.441 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|      204.3µs|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:19:26.569 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|      601.8µs|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:20:24.084 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:938 version:14 value:"[{\"ProductID\":1001,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 22:20:24.084 [D] [init.go:84]  secInfo conf is [{1001 1607350578 1607354238 100 10 10} {1082 1607350578 1607354238 200 10 10}]
+2020/12/07 22:20:24.084 [D] [asm_amd64.s:1374]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 22:20:24.118 [I] [asm_amd64.s:1374]  http server Running on http://:18080
+2020/12/07 22:20:35.347 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|     1.1147ms|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:20:40.129 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|      560.8µs|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:20:46.248 [C] [panic.go:975]  the request url is  /secinfo/
+2020/12/07 22:20:46.249 [C] [panic.go:975]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 22:20:46.249 [C] [panic.go:975]  c:/go/src/runtime/panic.go:975
+2020/12/07 22:20:46.249 [C] [panic.go:975]  c:/go/src/runtime/panic.go:212
+2020/12/07 22:20:46.249 [C] [panic.go:975]  c:/go/src/runtime/signal_windows.go:246
+2020/12/07 22:20:46.249 [C] [panic.go:975]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:36
+2020/12/07 22:20:46.249 [C] [panic.go:975]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:35
+2020/12/07 22:20:46.249 [C] [panic.go:975]  c:/go/src/reflect/value.go:476
+2020/12/07 22:20:46.249 [C] [panic.go:975]  c:/go/src/reflect/value.go:337
+2020/12/07 22:20:46.249 [C] [panic.go:975]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 22:20:46.249 [C] [panic.go:975]  c:/go/src/net/http/server.go:2843
+2020/12/07 22:20:46.249 [C] [panic.go:975]  c:/go/src/net/http/server.go:1925
+2020/12/07 22:20:46.249 [C] [panic.go:975]  c:/go/src/runtime/asm_amd64.s:1374
+2020/12/07 22:20:46.249 [server.go:3093]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 22:21:51.545 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:938 version:14 value:"[{\"ProductID\":1001,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 22:21:51.546 [D] [init.go:84]  secInfo conf is [{1001 1607350578 1607354238 100 10 10} {1082 1607350578 1607354238 200 10 10}]
+2020/12/07 22:21:51.546 [D] [asm_amd64.s:1374]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 22:21:51.579 [I] [asm_amd64.s:1374]  http server Running on http://:18080
+2020/12/07 22:21:55.433 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|       94.1µs|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:23:02.958 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:938 version:14 value:"[{\"ProductID\":1001,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 22:23:02.958 [D] [init.go:84]  secInfo conf is [{1001 1607350578 1607354238 100 10 10} {1082 1607350578 1607354238 200 10 10}]
+2020/12/07 22:23:02.958 [D] [asm_amd64.s:1374]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 22:23:02.994 [I] [asm_amd64.s:1374]  http server Running on http://:18080
+2020/12/07 22:23:08.410 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|   5.1552763s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:23:15.625 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|      997.9µs|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:23:21.202 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:39:39.537 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:938 version:14 value:"[{\"ProductID\":1001,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 22:39:39.538 [D] [init.go:84]  secInfo conf is [{1001 1607350578 1607354238 100 10 10} {1082 1607350578 1607354238 200 10 10}]
+2020/12/07 22:39:39.539 [D] [asm_amd64.s:1374]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 22:39:39.704 [I] [asm_amd64.s:1374]  http server Running on http://:18080
+2020/12/07 22:40:24.639 [C] [panic.go:975]  the request url is  /secinfo/
+2020/12/07 22:40:24.639 [C] [panic.go:975]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2020/12/07 22:40:24.639 [C] [panic.go:975]  c:/go/src/runtime/panic.go:975
+2020/12/07 22:40:24.639 [C] [panic.go:975]  c:/go/src/runtime/panic.go:212
+2020/12/07 22:40:24.639 [C] [panic.go:975]  c:/go/src/runtime/signal_windows.go:246
+2020/12/07 22:40:24.639 [C] [panic.go:975]  d:/www/SecKill/SecKill/SecProxy/service/seckill_sec.go:10
+2020/12/07 22:40:24.639 [C] [panic.go:975]  d:/www/SecKill/SecKill/SecProxy/controller/seckill.go:40
+2020/12/07 22:40:24.639 [C] [panic.go:975]  c:/go/src/reflect/value.go:476
+2020/12/07 22:40:24.639 [C] [panic.go:975]  c:/go/src/reflect/value.go:337
+2020/12/07 22:40:24.639 [C] [panic.go:975]  D:/go_project/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:897
+2020/12/07 22:40:24.639 [C] [panic.go:975]  c:/go/src/net/http/server.go:2843
+2020/12/07 22:40:24.639 [C] [panic.go:975]  c:/go/src/net/http/server.go:1925
+2020/12/07 22:40:24.639 [C] [panic.go:975]  c:/go/src/runtime/asm_amd64.s:1374
+2020/12/07 22:40:24.640 [server.go:3093]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2020/12/07 22:44:16.643 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:938 version:14 value:"[{\"ProductID\":1001,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 22:44:16.643 [D] [init.go:84]  secInfo conf is [{1001 1607350578 1607354238 100 10 10} {1082 1607350578 1607354238 200 10 10}]
+2020/12/07 22:44:16.643 [D] [asm_amd64.s:1374]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 22:44:16.679 [I] [asm_amd64.s:1374]  http server Running on http://:18080
+2020/12/07 22:44:22.807 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:44:43.059 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:45:36.993 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:938 version:14 value:"[{\"ProductID\":1001,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 22:45:36.994 [D] [init.go:84]  secInfo conf is [{1001 1607350578 1607354238 100 10 10} {1082 1607350578 1607354238 200 10 10}]
+2020/12/07 22:45:36.994 [D] [asm_amd64.s:1374]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 22:45:37.036 [I] [asm_amd64.s:1374]  http server Running on http://:18080
+2020/12/07 22:45:40.109 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:45:46.274 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:45:54.197 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 22:46:43.222 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:938 version:14 value:"[{\"ProductID\":1001,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 22:46:43.223 [D] [init.go:84]  secInfo conf is [{1001 1607350578 1607354238 100 10 10} {1082 1607350578 1607354238 200 10 10}]
+2020/12/07 22:46:43.223 [D] [asm_amd64.s:1374]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 22:46:43.266 [I] [asm_amd64.s:1374]  http server Running on http://:18080
+2020/12/07 22:46:46.152 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 23:41:37.987 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:938 version:14 value:"[{\"ProductID\":1001,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 23:41:37.987 [D] [init.go:84]  secInfo conf is [{1001 1607350578 1607354238 100 10 10} {1082 1607350578 1607354238 200 10 10}]
+2020/12/07 23:41:37.987 [D] [asm_amd64.s:1374]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 23:41:38.039 [I] [asm_amd64.s:1374]  http server Running on http://:18080
+2020/12/07 23:42:57.325 [D] [init.go:84]  key:%!s(int=0) value:key:"/joelWu/backend/seckill/product" create_revision:925 mod_revision:938 version:14 value:"[{\"ProductID\":1001,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607350578,\"EndTime\":1607354238,\"Status\":200,\"Total\":10,\"Left\":10}]" 
+2020/12/07 23:42:57.325 [D] [init.go:84]  secInfo conf is [{1001 1607350578 1607354238 100 10 10} {1082 1607350578 1607354238 200 10 10}]
+2020/12/07 23:42:57.325 [D] [asm_amd64.s:1374]  begin watch key: /joelWu/backend/seckill/product
+2020/12/07 23:42:57.366 [I] [asm_amd64.s:1374]  http server Running on http://:18080
+2020/12/07 23:43:07.737 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 23:44:56.088 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|1m25.4067348s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 23:45:01.786 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 23:45:15.295 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 23:47:27.001 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|1m56.4511743s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 23:47:35.097 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|   4.8151982s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 23:47:41.130 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 23:47:45.061 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 23:57:05.003 [D] [asm_amd64.s:1374]  get config from etcd,PUT "/joelWu/backend/seckill/product": "[{\"ProductID\":1001,\"StartTime\":1607356564,\"EndTime\":1607360224,\"Status\":100,\"Total\":10,\"Left\":10},{\"ProductID\":1082,\"StartTime\":1607356564,\"EndTime\":1607360224,\"Status\":200,\"Total\":10,\"Left\":10}]"
+
+2020/12/07 23:57:05.003 [D] [asm_amd64.s:1374]  get config from etcd success, [{1001 1607356564 1607360224 100 10 10} {1082 1607356564 1607360224 200 10 10}]
+2020/12/07 23:57:13.199 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 23:57:20.113 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo
+2020/12/07 23:57:29.587 [D] [server.go:2843]  |      127.0.0.1|[42m 200 [0m|           0s|   match|[44m GET     [0m /secinfo/   r:/secinfo

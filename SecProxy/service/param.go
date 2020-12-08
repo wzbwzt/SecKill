@@ -6,8 +6,8 @@ type CommonReturn struct {
 }
 type SecKillProductInfo struct {
 	ProductID int
-	StartTime int64
-	EndTime   int64
+	Start     bool
+	End       bool
 	Status    int
 	Total     int
 	Left      int

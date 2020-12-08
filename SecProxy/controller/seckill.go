@@ -23,7 +23,7 @@ func (s *SecKillController) SecKill() {
 
 }
 func (s *SecKillController) SecInfo() {
-	rsp := parameter.Response{}
+	rsp := &parameter.Response{}
 	defer func() {
 		s.Data["json"] = rsp
 		s.ServeJSON()
@@ -36,6 +36,7 @@ func (s *SecKillController) SecInfo() {
 	}
 
 	grsp, err := service.ReadSecKilProInfo(prodID)
+
 	if err != nil {
 		rsp.Code = service.ErrInvalidParam
 		rsp.Msg = err.Error()
@@ -46,16 +47,19 @@ func (s *SecKillController) SecInfo() {
 		rsp.Msg = grsp.Ret.Reason
 		return
 	}
+	//不对外展示时间，每个客户端的时间可能不一致，无法做到统一处理；所以得以服务器时间为准，只返回活动
+	//开始与否以及状态
 	data := parameter.ReadSecKProdInfoRsp{
 		ProductID: grsp.Info.ProductID,
-		StartTime: grsp.Info.StartTime,
-		EndTime:   grsp.Info.EndTime,
 		Total:     grsp.Info.Total,
 		Left:      grsp.Info.Left,
 		Status:    grsp.Info.Status,
+		Start:     grsp.Info.Start,
+		End:       grsp.Info.End,
 	}
 	rsp.Data = data
 	rsp.Code = service.ErrCodeSuccess
 	rsp.Msg = "success"
+
 	return
 }
