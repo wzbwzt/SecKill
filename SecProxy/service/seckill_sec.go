@@ -3,7 +3,12 @@ package service
 import (
 	"SecProxy/conf"
 	"SecProxy/parameter"
+	"sync"
 	"time"
+)
+
+var (
+	RWlock sync.RWMutex
 )
 
 //ReadSecKilProInfo 获取秒杀商品详情
@@ -75,5 +80,16 @@ func ReadSecKilProInfo(id int) (out *ReadSecProRsp, err error) {
 			Reason: "product has not exist",
 		},
 	}
+	return
+}
+
+//SecKill 秒杀
+func SecKill(req *parameter.SecKillReq) (err error) {
+	RWlock.RLock()
+	defer RWlock.RUnlock()
+
+	//校验用户是否登录
+	userCheck()
+
 	return
 }

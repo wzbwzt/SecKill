@@ -25,7 +25,7 @@ type SysConfig struct {
 	redisConf *RedisConfig
 	etcdConf  *EtcdConfig
 	logConf   *LogsConfig
-	rwLock    sync.RWMutex
+	RwLock    sync.RWMutex
 	SecretKey string
 }
 type RedisConfig struct {
@@ -195,7 +195,7 @@ func loadSecConfig() (err error) {
 		logs.Debug("secInfo conf is %v", secProductInfo)
 	}
 
-	secKillConfig.rwLock.Lock()
+	secKillConfig.RwLock.Lock()
 	for _, v := range secProductInfo {
 		_, ok := MapSecKillProducts[v.ProductID]
 		if ok {
@@ -204,7 +204,7 @@ func loadSecConfig() (err error) {
 		tmp := v
 		MapSecKillProducts[v.ProductID] = &tmp
 	}
-	secKillConfig.rwLock.Unlock()
+	secKillConfig.RwLock.Unlock()
 	return
 }
 
@@ -255,7 +255,7 @@ func updateSecProductInfo(confs []SecProductInfoConf) {
 		tmp[v.ProductID] = &ttmp
 	}
 
-	secKillConfig.rwLock.Lock()
+	secKillConfig.RwLock.Lock()
 	MapSecKillProducts = tmp
-	secKillConfig.rwLock.Unlock()
+	secKillConfig.RwLock.Unlock()
 }

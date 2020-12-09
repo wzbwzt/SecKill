@@ -1,5 +1,7 @@
 package parameter
 
+import "time"
+
 const (
 	OnSale = iota
 	HasSaleOut
@@ -23,4 +25,5 @@ type SecKillReq struct {
 	Nance        string
 	UserID       string //用于校验用户是否处于登录状态
 	UserAuthSign string //用于校验用户是否处于登录状态
+	AccessTime   time.Time
 }

@@ -65,5 +65,9 @@ func (s *SecKillController) SecProdInfo() {
 }
 
 func (s *SecKillController) SecKill() {
+	s.Ctx.GetCookie("userID")
+	s.Ctx.GetCookie("userAuthSign")
+	req := &parameter.SecKillReq{}
 
+	service.SecKill(req)
 }
