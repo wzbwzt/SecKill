@@ -83,13 +83,15 @@ func ReadSecKilProInfo(id int) (out *ReadSecProRsp, err error) {
 	return
 }
 
-//SecKill 秒杀
 func SecKill(req *parameter.SecKillReq) (err error) {
 	RWlock.RLock()
 	defer RWlock.RUnlock()
 
 	//校验用户是否登录
-	userCheck()
+	err = userCheck(req.UserID, req.UserAuthSign)
+	if err != nil {
+		return
+	}
 
 	return
 }

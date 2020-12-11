@@ -23,7 +23,7 @@ type SecKillReq struct {
 	AuthCode     string
 	SecTime      string //抢购时间
 	Nance        string
-	UserID       string //用于校验用户是否处于登录状态
+	UserID       int64  //用于校验用户是否处于登录状态
 	UserAuthSign string //用于校验用户是否处于登录状态
 	AccessTime   time.Time
 }

@@ -15,7 +15,7 @@ import (
 )
 
 var (
-	secKillConfig      *SysConfig
+	SecKillConfig      *SysConfig
 	redisPool          *redis.Pool
 	etcdClient         *etcd.Client
 	MapSecKillProducts = make(map[int]*SecProductInfoConf)
@@ -94,7 +94,7 @@ func init() {
 }
 
 func initConfig() {
-	secKillConfig = &SysConfig{
+	SecKillConfig = &SysConfig{
 		etcdConf: &EtcdConfig{
 			etcdAddr:       beego.AppConfig.String("etcdAddr"),
 			timeOut:        beego.AppConfig.DefaultInt("etcdTimeOut", 10),
@@ -117,11 +117,11 @@ func initConfig() {
 
 func initRedis() (err error) {
 	redisPool = &redis.Pool{
-		MaxIdle:     secKillConfig.redisConf.maxIdle,
-		MaxActive:   secKillConfig.redisConf.maxActive,
-		IdleTimeout: time.Duration(secKillConfig.redisConf.idleTimeOut) * time.Second,
+		MaxIdle:     SecKillConfig.redisConf.maxIdle,
+		MaxActive:   SecKillConfig.redisConf.maxActive,
+		IdleTimeout: time.Duration(SecKillConfig.redisConf.idleTimeOut) * time.Second,
 		Dial: func() (redis.Conn, error) {
-			return redis.Dial("tcp", secKillConfig.redisConf.redisAddr)
+			return redis.Dial("tcp", SecKillConfig.redisConf.redisAddr)
 		},
 	}
 
@@ -136,8 +136,8 @@ func initRedis() (err error) {
 
 func initEtcd() (err error) {
 	etcdClient, err = etcd.New(etcd.Config{
-		Endpoints:   []string{secKillConfig.etcdConf.etcdAddr},
-		DialTimeout: time.Duration(secKillConfig.etcdConf.timeOut) * time.Millisecond,
+		Endpoints:   []string{SecKillConfig.etcdConf.etcdAddr},
+		DialTimeout: time.Duration(SecKillConfig.etcdConf.timeOut) * time.Millisecond,
 	})
 
 	if err != nil {
@@ -148,8 +148,8 @@ func initEtcd() (err error) {
 
 func initLogs() (err error) {
 	config := make(map[string]interface{})
-	config["filename"] = secKillConfig.logConf.logPath
-	config["level"] = transferLogLevel(secKillConfig.logConf.logLevel)
+	config["filename"] = SecKillConfig.logConf.logPath
+	config["level"] = transferLogLevel(SecKillConfig.logConf.logLevel)
 	var jstr []byte
 	jstr, err = json.Marshal(config)
 	if err != nil {
@@ -179,7 +179,7 @@ func transferLogLevel(level string) int {
 
 //从etd加载秒杀配置
 func loadSecConfig() (err error) {
-	key := fmt.Sprintf("%s/%s", secKillConfig.etcdConf.etcdSecKPrefix, secKillConfig.etcdConf.etcdProductKey)
+	key := fmt.Sprintf("%s/%s", SecKillConfig.etcdConf.etcdSecKPrefix, SecKillConfig.etcdConf.etcdProductKey)
 	rsp, err := etcdClient.Get(context.Background(), key)
 	if err != nil {
 		return
@@ -195,7 +195,7 @@ func loadSecConfig() (err error) {
 		logs.Debug("secInfo conf is %v", secProductInfo)
 	}
 
-	secKillConfig.RwLock.Lock()
+	SecKillConfig.RwLock.Lock()
 	for _, v := range secProductInfo {
 		_, ok := MapSecKillProducts[v.ProductID]
 		if ok {
@@ -204,13 +204,13 @@ func loadSecConfig() (err error) {
 		tmp := v
 		MapSecKillProducts[v.ProductID] = &tmp
 	}
-	secKillConfig.RwLock.Unlock()
+	SecKillConfig.RwLock.Unlock()
 	return
 }
 
 //监听秒杀配置是否改变
 func initSecProductWatcher() {
-	key := fmt.Sprintf("%s/%s", secKillConfig.etcdConf.etcdSecKPrefix, secKillConfig.etcdConf.etcdProductKey)
+	key := fmt.Sprintf("%s/%s", SecKillConfig.etcdConf.etcdSecKPrefix, SecKillConfig.etcdConf.etcdProductKey)
 	go watchSecProductKey(key)
 }
 
@@ -255,7 +255,7 @@ func updateSecProductInfo(confs []SecProductInfoConf) {
 		tmp[v.ProductID] = &ttmp
 	}
 
-	secKillConfig.RwLock.Lock()
+	SecKillConfig.RwLock.Lock()
 	MapSecKillProducts = tmp
-	secKillConfig.RwLock.Unlock()
+	SecKillConfig.RwLock.Unlock()
 }

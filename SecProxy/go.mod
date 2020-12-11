@@ -14,7 +14,7 @@ require (
 	github.com/grpc-ecosystem/go-grpc-middleware v1.2.2 // indirect
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0 // indirect
 	github.com/jonboulle/clockwork v0.2.2 // indirect
-	github.com/micro/go-micro/v2 v2.9.1
+	github.com/micro/go-micro/v2 v2.9.1 // indirect
 	github.com/smartystreets/goconvey v1.6.4
 	github.com/tmc/grpc-websocket-proxy v0.0.0-20200427203606-3cfed13b9966 // indirect
 	go.etcd.io/etcd v3.3.25+incompatible
