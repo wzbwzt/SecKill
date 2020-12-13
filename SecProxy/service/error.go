@@ -12,3 +12,19 @@ const (
 	ErrProcessTimeout      = 1008
 	ErrClientClosed        = 1009
 )
+
+type MyErr struct {
+	Code   int
+	Reason string
+}
+
+func (m *MyErr) Error() string {
+	return m.Reason
+}
+
+func New(code int, reason string) error {
+	return &MyErr{
+		Code:   code,
+		Reason: reason,
+	}
+}

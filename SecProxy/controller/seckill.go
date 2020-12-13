@@ -3,6 +3,9 @@ package controller
 import (
 	"SecProxy/parameter"
 	"SecProxy/service"
+	"strconv"
+	"strings"
+	"time"
 
 	"github.com/astaxie/beego"
 )
@@ -22,12 +25,15 @@ func (s *SecKillController) SecKillProdList() {
 	rsp.Msg = "succes"
 	return
 }
+
+//SecProdInfo 商品详情
 func (s *SecKillController) SecProdInfo() {
 	rsp := &parameter.Response{}
 	defer func() {
 		s.Data["json"] = rsp
 		s.ServeJSON()
 	}()
+
 	prodID, err := s.GetInt("prodId")
 	if err != nil {
 		rsp.Code = service.ErrInvalidParam
@@ -65,9 +71,46 @@ func (s *SecKillController) SecProdInfo() {
 }
 
 func (s *SecKillController) SecKill() {
-	s.Ctx.GetCookie("userID")
-	s.Ctx.GetCookie("userAuthSign")
-	req := &parameter.SecKillReq{}
+	rsp := &parameter.Response{}
+	defer func() {
+		s.Data["json"] = rsp
+		s.ServeJSON()
+	}()
+
+	userID, err := strconv.ParseInt(s.Ctx.GetCookie("userID"), 10, 64)
+	if err != nil {
+		rsp.Code = service.ErrInvalidParam
+		rsp.Msg = err.Error()
+		return
+	}
+	reqAddr := s.Ctx.Request.RemoteAddr
+	if len(strings.Split(reqAddr, ":")) == 0 {
+		rsp.Code = service.ErrInvalidParam
+		rsp.Msg = "无效的请求地址"
+		return
+	}
+	reqIP := strings.Split(reqAddr, ":")[0]
+
+	prodID, err := s.GetInt("prodId")
+	if err != nil {
+		rsp.Code = service.ErrInvalidParam
+		rsp.Msg = err.Error()
+		return
+	}
+
+	req := &parameter.SecKillReq{
+		ClientAddr:    reqIP,
+		UserID:        userID,
+		UserAuthSign:  s.Ctx.GetCookie("userAuthSign"),
+		ProductID:     int64(prodID),
+		Source:        s.GetString("source"),
+		AuthCode:      s.GetString("authcode"),
+		SecTime:       s.GetString("time"),
+		Nance:         s.GetString("nance"),
+		ClientRefence: s.Ctx.Request.Referer(),
+		AccessTime:    time.Now(),
+	}
 
 	service.SecKill(req)
+
 }

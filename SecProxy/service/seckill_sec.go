@@ -88,7 +88,7 @@ func SecKill(req *parameter.SecKillReq) (err error) {
 	defer RWlock.RUnlock()
 
 	//校验用户是否登录
-	err = userCheck(req.UserID, req.UserAuthSign)
+	err = userCheck(req)
 	if err != nil {
 		return
 	}

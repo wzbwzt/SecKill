@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"strings"
 	"sync"
 	"time"
 
@@ -22,11 +23,14 @@ var (
 )
 
 type SysConfig struct {
-	redisConf *RedisConfig
-	etcdConf  *EtcdConfig
-	logConf   *LogsConfig
-	RwLock    sync.RWMutex
-	SecretKey string
+	redisConf         *RedisConfig
+	etcdConf          *EtcdConfig
+	logConf           *LogsConfig
+	RwLock            sync.RWMutex
+	SecretKey         string
+	RefenceWhiteList  []string
+	IPSecAccessLimit  int
+	MaxSecAccessLimit int
 }
 type RedisConfig struct {
 	redisAddr   string
@@ -94,6 +98,7 @@ func init() {
 }
 
 func initConfig() {
+	refenceWhiteList := strings.Split(beego.AppConfig.String("refenceWhiteList"), ",")
 	SecKillConfig = &SysConfig{
 		etcdConf: &EtcdConfig{
 			etcdAddr:       beego.AppConfig.String("etcdAddr"),
@@ -111,7 +116,10 @@ func initConfig() {
 			logPath:  beego.AppConfig.String("logPath"),
 			logLevel: beego.AppConfig.String("logLevel"),
 		},
-		SecretKey: beego.AppConfig.String("secretKey"),
+		SecretKey:         beego.AppConfig.String("secretKey"),
+		RefenceWhiteList:  refenceWhiteList,
+		IPSecAccessLimit:  beego.AppConfig.DefaultInt("ipSecAccessLimit", 10),
+		MaxSecAccessLimit: beego.AppConfig.DefaultInt("maxSecAccessLimit", 10),
 	}
 }
 
