@@ -111,6 +111,19 @@ func (s *SecKillController) SecKill() {
 		AccessTime:    time.Now(),
 	}
 
-	service.SecKill(req)
+	out, err := service.SecKill(req)
+	if err != nil {
+		rsp.Code = service.ErrInvalidParam
+		rsp.Msg = err.Error()
+		return
+	}
+	if out.Ret.Code != service.ErrCodeSuccess {
+		rsp.Code = out.Ret.Code
+		rsp.Msg = out.Ret.Reason
+		return
+	}
 
+	rsp.Code = service.ErrCodeSuccess
+	rsp.Msg = "抢购成功"
+	return
 }

@@ -16,21 +16,29 @@ import (
 )
 
 var (
-	SecKillConfig      *SysConfig
-	redisPool          *redis.Pool
-	etcdClient         *etcd.Client
-	MapSecKillProducts = make(map[int]*SecProductInfoConf)
+	SecKillConfig        *SysConfig
+	BlackRedisPool       *redis.Pool
+	Proxy2LayerRedisPool *redis.Pool
+	etcdClient           *etcd.Client
+	MapSecKillProducts   = make(map[int]*SecProductInfoConf)
 )
 
 type SysConfig struct {
-	redisConf         *RedisConfig
-	etcdConf          *EtcdConfig
-	logConf           *LogsConfig
-	RwLock            sync.RWMutex
-	SecretKey         string
-	RefenceWhiteList  []string
-	IPSecAccessLimit  int
-	MaxSecAccessLimit int
+	redisBlackConf        *RedisConfig
+	redisProxy2LayerConf  *RedisConfig
+	etcdConf              *EtcdConfig
+	logConf               *LogsConfig
+	RwLock                sync.RWMutex
+	SecretKey             string
+	RefenceWhiteList      []string
+	IPSecAccessLimit      int
+	MaxSecAccessLimit     int
+	IPBlcakMap            map[string]bool
+	UserIDBlcakMap        map[int64]bool
+	SyncRwLock            sync.RWMutex
+	WriteProxy2LayerGoNum int
+	ReadLayer2ProxyGoNum  int
+	SecReqChanSize        int
 }
 type RedisConfig struct {
 	redisAddr   string
@@ -65,8 +73,14 @@ func init() {
 	initConfig()
 
 	var err error
-	//加载redis配置
-	err = initRedis()
+	//加载黑名单redis配置
+	err = initRedisForBlackList()
+	if err != nil {
+		logs.Error("init redis failed,err:%s", err)
+		panic(err)
+	}
+	//加载接入层到逻辑层redis配置
+	err = initRedisForProxy2Layer()
 	if err != nil {
 		logs.Error("init redis failed,err:%s", err)
 		panic(err)
@@ -106,35 +120,45 @@ func initConfig() {
 			etcdSecKPrefix: beego.AppConfig.String("etcdSecKeyPrefix"),
 			etcdProductKey: beego.AppConfig.String("etcdProductKey"),
 		},
-		redisConf: &RedisConfig{
-			redisAddr:   beego.AppConfig.String("redisAddr"),
-			maxIdle:     beego.AppConfig.DefaultInt("maxIdle", 10),
-			maxActive:   beego.AppConfig.DefaultInt("maxActive", 10),
-			idleTimeOut: beego.AppConfig.DefaultInt("idleTimeOut", 10),
+		redisBlackConf: &RedisConfig{
+			redisAddr:   beego.AppConfig.String("redisBlackAddr"),
+			maxIdle:     beego.AppConfig.DefaultInt("blackMaxIdle", 10),
+			maxActive:   beego.AppConfig.DefaultInt("blackMaxActive", 10),
+			idleTimeOut: beego.AppConfig.DefaultInt("blackIdleTimeOut", 10),
+		},
+		redisProxy2LayerConf: &RedisConfig{
+			redisAddr:   beego.AppConfig.String("proxy2LayerRedisAddr"),
+			maxIdle:     beego.AppConfig.DefaultInt("proxy2LayerMaxIdle", 10),
+			maxActive:   beego.AppConfig.DefaultInt("proxy2LayerMaxActive", 10),
+			idleTimeOut: beego.AppConfig.DefaultInt("proxy2LayerIdleTimeOut", 10),
 		},
 		logConf: &LogsConfig{
 			logPath:  beego.AppConfig.String("logPath"),
 			logLevel: beego.AppConfig.String("logLevel"),
 		},
-		SecretKey:         beego.AppConfig.String("secretKey"),
-		RefenceWhiteList:  refenceWhiteList,
-		IPSecAccessLimit:  beego.AppConfig.DefaultInt("ipSecAccessLimit", 10),
-		MaxSecAccessLimit: beego.AppConfig.DefaultInt("maxSecAccessLimit", 10),
+		SecretKey:             beego.AppConfig.String("secretKey"),
+		RefenceWhiteList:      refenceWhiteList,
+		IPSecAccessLimit:      beego.AppConfig.DefaultInt("ipSecAccessLimit", 10),
+		MaxSecAccessLimit:     beego.AppConfig.DefaultInt("maxSecAccessLimit", 10),
+		WriteProxy2LayerGoNum: beego.AppConfig.DefaultInt("writeProxy2LayerGoroutineNum", 10),
+		ReadLayer2ProxyGoNum:  beego.AppConfig.DefaultInt("readLayer2ProxyGoroutineNum", 10),
+		SecReqChanSize:        beego.AppConfig.DefaultInt("secReqChanSize", 100),
 	}
 }
 
-func initRedis() (err error) {
-	redisPool = &redis.Pool{
-		MaxIdle:     SecKillConfig.redisConf.maxIdle,
-		MaxActive:   SecKillConfig.redisConf.maxActive,
-		IdleTimeout: time.Duration(SecKillConfig.redisConf.idleTimeOut) * time.Second,
+//加载黑名单的redis配置
+func initRedisForBlackList() (err error) {
+	BlackRedisPool = &redis.Pool{
+		MaxIdle:     SecKillConfig.redisBlackConf.maxIdle,
+		MaxActive:   SecKillConfig.redisBlackConf.maxActive,
+		IdleTimeout: time.Duration(SecKillConfig.redisBlackConf.idleTimeOut) * time.Second,
 		Dial: func() (redis.Conn, error) {
-			return redis.Dial("tcp", SecKillConfig.redisConf.redisAddr)
+			return redis.Dial("tcp", SecKillConfig.redisBlackConf.redisAddr)
 		},
 	}
 
 	//测试连接池
-	conn := redisPool.Get()
+	conn := BlackRedisPool.Get()
 	_, err = conn.Do("ping")
 	if err != nil {
 		return
@@ -142,6 +166,25 @@ func initRedis() (err error) {
 	return
 }
 
+//加载接入层到逻辑层redis配置
+func initRedisForProxy2Layer() (err error) {
+	Proxy2LayerRedisPool = &redis.Pool{
+		MaxIdle:     SecKillConfig.redisProxy2LayerConf.maxIdle,
+		MaxActive:   SecKillConfig.redisProxy2LayerConf.maxActive,
+		IdleTimeout: time.Duration(SecKillConfig.redisProxy2LayerConf.idleTimeOut) * time.Second,
+		Dial: func() (redis.Conn, error) {
+			return redis.Dial("tcp", SecKillConfig.redisProxy2LayerConf.redisAddr)
+		},
+	}
+
+	//测试连接池
+	conn := Proxy2LayerRedisPool.Get()
+	_, err = conn.Do("ping")
+	if err != nil {
+		return
+	}
+	return
+}
 func initEtcd() (err error) {
 	etcdClient, err = etcd.New(etcd.Config{
 		Endpoints:   []string{SecKillConfig.etcdConf.etcdAddr},

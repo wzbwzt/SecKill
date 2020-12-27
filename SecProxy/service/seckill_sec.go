@@ -83,15 +83,49 @@ func ReadSecKilProInfo(id int) (out *ReadSecProRsp, err error) {
 	return
 }
 
-func SecKill(req *parameter.SecKillReq) (err error) {
+func SecKill(req *parameter.SecKillReq) (out *ReadSecProRsp, err error) {
 	RWlock.RLock()
 	defer RWlock.RUnlock()
 
 	//校验用户是否登录
 	err = userCheck(req)
 	if err != nil {
+		if myerr, ok := err.(MyErr); ok {
+			out.Ret = &CommonReturn{
+				Code:   myerr.Code,
+				Reason: myerr.Reason,
+			}
+			return
+		}
 		return
 	}
+
+	//用户id和ip访问频率检测更新
+	err = antispam(req)
+	if err != nil {
+		if myerr, ok := err.(MyErr); ok {
+			out.Ret = &CommonReturn{
+				Code:   myerr.Code,
+				Reason: myerr.Reason,
+			}
+			return
+		}
+		return
+	}
+
+	res, err := ReadSecKilProInfo(int(req.ProductID))
+	if err != nil {
+		return
+	}
+	if res.Ret.Code != ErrCodeSuccess {
+		out.Ret = &CommonReturn{
+			Code:   res.Ret.Code,
+			Reason: res.Ret.Reason,
+		}
+		return
+	}
+
+	SecReqChan <- req
 
 	return
 }

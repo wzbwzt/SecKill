@@ -18,12 +18,12 @@ type MyErr struct {
 	Reason string
 }
 
-func (m *MyErr) Error() string {
+func (m MyErr) Error() string {
 	return m.Reason
 }
 
 func New(code int, reason string) error {
-	return &MyErr{
+	return MyErr{
 		Code:   code,
 		Reason: reason,
 	}

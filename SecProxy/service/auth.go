@@ -28,7 +28,7 @@ func userCheck(req *parameter.SecKillReq) (err error) {
 		}
 	}
 	if !refence {
-		logs.Warn("user:%d is reject by refene[%s]", req.UserID, req.ClientRefence)
+		logs.Warn("user:%d is reject by refence[%s]", req.UserID, req.ClientRefence)
 		return New(ErrInvalidParam, "异常访问来源")
 	}
 	return
