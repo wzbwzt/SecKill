@@ -57,7 +57,6 @@ type SecLayerConf struct {
 	HandleUserGoroutineNum int
 	Read2HandleChanSize    int
 	Handle2WriteChanSize   int
-	MaxRequestWaitTimeout  int
 
 	SendToWriteChanTimeout  int
 	SendToHandleChanTimeout int
@@ -65,6 +64,11 @@ type SecLayerConf struct {
 	SecProductInfoMap        map[int]*SecProductInfoConf
 	SecProductInfoUpdateLock sync.RWMutex
 	TokenPassword            string
+
+	Layer2ProxyQueueName string
+	Proxy2LayerQueueName string
+
+	MaxReqWaitTime int64
 }
 
 func Init(typeName, path string) (err error) {
@@ -99,9 +103,13 @@ func Init(typeName, path string) (err error) {
 		},
 		LogPath:                configer.DefaultString("logs::log_path", "./logs/seclayer.log"),
 		LogLevel:               configer.DefaultString("logs::log_level", "debug"),
-		ReadGoroutineNum:       configer.DefaultInt("redis::read_goroutine_num", 10),
-		WriteGoroutineNum:      configer.DefaultInt("redis::write_goroutine_numetcd_timeout", 10),
-		HandleUserGoroutineNum: configer.DefaultInt("redis::handle_user_goroutine_numetcd_timeout", 10),
+		ReadGoroutineNum:       configer.DefaultInt("service::read_goroutine_num", 10),
+		WriteGoroutineNum:      configer.DefaultInt("service::write_goroutine_numetcd_timeout", 10),
+		HandleUserGoroutineNum: configer.DefaultInt("service::handle_user_goroutine_numetcd_timeout", 10),
+		Read2HandleChanSize:    configer.DefaultInt("service::read2_handle_chan_size", 10000),
+		Layer2ProxyQueueName:   configer.DefaultString("redis::redis_proxy2layer_queue_name", "sec_queue"),
+		Proxy2LayerQueueName:   configer.DefaultString("redis::redis_layer2proxy_queue_name", "recv_queue"),
+		MaxReqWaitTime:         configer.DefaultInt64("service::max_req_wait_time", 15),
 	}
 	return
 }

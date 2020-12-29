@@ -2,15 +2,22 @@ package service
 
 import (
 	"SecLayer/conf"
+	"encoding/json"
 	"time"
 
 	"github.com/astaxie/beego/logs"
 	"github.com/garyburd/redigo/redis"
 )
 
+type SecRes struct {
+	ProductID int64
+	UserID    int64
+	Token     string
+	Code      int
+}
+
 //redis相关操作
 func initRedisPools() (err error) {
-	secLayerContext = &SecLayerContext{}
 	secLayerContext.Proxy2LayerRedisPool, err = initRedisPool(conf.SecLayerSysConfig.Proxy2LayerRedis)
 	secLayerContext.Layer2ProxyRedisPool, err = initRedisPool(conf.SecLayerSysConfig.Layer2ProxyRedis)
 	if err != nil {
@@ -61,7 +68,32 @@ func SecProcessFunc() {
 }
 
 func ReadHandle() {
-	return
+	logs.Debug("read from proxy2layer redis running")
+	for {
+		conn := secLayerContext.Proxy2LayerRedisPool.Get()
+		for {
+			data, err := redis.String(conn.Do("blpop", conf.SecLayerSysConfig.Proxy2LayerQueueName))
+			if err != nil {
+				logs.Error("blpop from redis failed,err:", err.Error())
+				break
+			}
+			var reqSecReqInfo SecKillReq
+			err = json.Unmarshal([]byte(data), &reqSecReqInfo)
+			if err != nil {
+				logs.Error("redis data json unmarshal failed,err:", err.Error())
+				continue
+			}
+
+			//对于超时的请求不再处理
+			if time.Now().Unix()-reqSecReqInfo.AccessTime.Unix() >= conf.SecLayerSysConfig.MaxReqWaitTime {
+				logs.Warn("this req[%v] has allready expire", reqSecReqInfo)
+				continue
+			}
+
+			secLayerContext.Read2HandleChan <- &reqSecReqInfo
+		}
+		conn.Close()
+	}
 }
 
 func WriteHandle() {
